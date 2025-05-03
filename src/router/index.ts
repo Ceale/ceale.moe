@@ -17,6 +17,7 @@ const router = createRouter({
   ]
 })
 
-router.beforeEach((from, to, next) => inject("ShowSwitchAnimation").run(next, from, to))
+router.beforeEach((from, to, next) => inject<ShowSwitchAnimation>("ShowSwitchAnimation").run(next, from, to))
+// router.beforeEach((from, to, next) => ShowSwitchAnimation(next, from, to))
 
 export default router

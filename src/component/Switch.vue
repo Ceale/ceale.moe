@@ -4,9 +4,7 @@ import sleep from "@u/sleep"
 
 let first = true
 
-
-inject("ShowSwitchAnimation").run = Start
-function Start(next) {
+const Start = (next) => {
     if (first == true) {
         first = false
         next()
@@ -28,6 +26,7 @@ function Start(next) {
         }, 100)
     })
 }
+inject("ShowSwitchAnimation").run = Start
 
 const show = ref(false)
 const className = ref([])

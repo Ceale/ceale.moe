@@ -59,7 +59,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fff;
+    background: #1c1b22;
     transition: opacity 600ms ease;
 }
 

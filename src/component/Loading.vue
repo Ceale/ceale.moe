@@ -1,22 +1,36 @@
 <script setup>
-import Genshin from "@c/Loading/Genshin.vue"
-import Mojang from "@c/Loading/Mojang.vue"
-import { ref } from "vue"
+import { ref, provide, defineAsyncComponent } from "vue"
 
-const hide = ref(false)
+const show = ref(true)
 function close() {
-    hide.value = true
+    show.value = false
 }
 
-const select = Math.ceil(Math.random()*2)
+document.addEventListener("readystatechange", (event) => {
+    if (event.target.readyState === "complete") {
+        load_finish = true
+        Hide()
+    }
+})
+
+provide<ShowSwitchAnimation>("ShowSwitchAnimation", {})
+
+// const 加载动画
+const loadingAnimationList = [
+    defineAsyncComponent(() => import("@c/Loading/Genshin.vue")),
+    defineAsyncComponent(() => import("@c/Loading/Mojang.vue"))
+]
+const loadingAnimation = loadingAnimationList[Math.floor(Math.random() * loadingAnimationList.length)]
+// const select = Math.ceil(Math.random()*2)
 </script>
 
 
 <template>
-    <section v-if="!hide">
+    <!-- <section v-if="show">
         <Genshin v-if="select===1" @close="close" />
         <Mojang v-else-if="select===2" @close="close" />
-    </section>
+    </section> -->
+    Com
 </template>
 
 <style scoped>
