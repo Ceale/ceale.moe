@@ -1,47 +1,49 @@
-<script setup>
-import { ref } from "vue"
-import sleep from "@u/sleep"
+<script setup lang="ts">
+import { inject, ref, watch, type Ref } from "vue"
+import { sleep } from "@/util/sleep"
 
 const emit = defineEmits(["close"])
 
-let load_finish = false
-document.addEventListener("readystatechange", (event) => {
-    if (event.target.readyState === "complete") {
-        load_finish = true
-        Hide()
-    }
-})
-
-let width = ref(0)
+const loaded = inject<Ref<boolean>>("loaded")
+watch(loaded!, () => hide())
 
 let animation_finish = false
 const timer = setInterval(() => {
-    width.value += (92 - width.value) / 5
-    console.log(width.value)
+    width.value += (94 - width.value) / 4
     if ( width.value > 90 ) {
         clearInterval(timer)
         animation_finish = true
-        Hide()
+        hide()
     }
-}, 300)
+}, 150)
 
-const opacity = ref(1)
-
-async function Hide() {
-    if ( !load_finish || !animation_finish ) return
-    await sleep(500)
+const hide = async () => {
+    if (!animation_finish || !loaded!.value) return
+    await sleep(400)
     width.value = 100
     opacity.value = 0
     await sleep(800)
     emit("close")
 }
 
+const width = ref(0)
+const opacity = ref(1)
+
+import MOJANG from "@a/image/loading/mojang/MOJANG.svg"
+import CEALE from "@a/image/loading/mojang/CEALE.svg"
+const themeList = [
+    [ MOJANG, "rgb(241, 60, 69)" ],
+    [ CEALE, "linear-gradient(rgba(96, 175, 0, 0.5), rgba(0, 120, 64, 0.5)), #fff" ]
+]
+const theme = themeList[Math.floor(Math.random() * themeList.length)]
+const bg = theme[1]
+const url = `url(${theme[0]})`
 </script>
 
 
 <template>
-<section :style="{ opacity: opacity }">
-    <div class="logo"></div>
+<section :style="{ opacity: opacity, background: bg }">
+    <div class="logo" :style="{ backgroundImage: url }"></div>
     <div class="background">
         <div class="fill" :style="{ width: width+'%' }"></div>
     </div>
@@ -54,16 +56,15 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ef323d;
+    /* background: v-bind(bg); */
     transition: opacity 800ms ease;
 }
 
 .logo {
     position: relative;
-    /* top: -4vmin; */
-    width: 50vmin;
-    height: 10vmin;
-    background-image: url(@a/image/loading/mojang/MOJANG.svg);
+    width: 80vmin;
+    height: 20vmin;
+    /* background-image: v-bind(url); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

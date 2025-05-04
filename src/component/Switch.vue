@@ -1,16 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import { ref, inject } from "vue"
-import sleep from "@u/sleep"
+import { sleep } from "@/util/sleep"
+import type { ShowLoadingAnimation } from "@/type/ShowLoadingAnimation"
 
 let first = true
 
-const Start = (next) => {
+const Start = (next: Function) => {
     if (first == true) {
         first = false
         next()
         return
     }
-
     // 开始动画
     animation_start(() => {
         // 动画入场完毕的回调函数
@@ -26,7 +26,7 @@ const Start = (next) => {
         }, 100)
     })
 }
-inject("ShowSwitchAnimation").run = Start
+inject<ShowLoadingAnimation>("ShowSwitchAnimation")!.run = Start
 
 const show = ref(false)
 const className = ref([])
@@ -108,7 +108,7 @@ section {
     left: 0;
     right: 0;
     overflow: hidden;
-    z-index: 10000;
+    z-index: 1000;
 }
 
 .container {

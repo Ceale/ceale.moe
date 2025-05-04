@@ -7,3 +7,8 @@
 a {
     text-decoration: none;
 }
+
+::selection {
+    background-color:#63a107;
+    color: #fffffb;
+}

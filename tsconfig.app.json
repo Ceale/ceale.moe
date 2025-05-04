@@ -12,7 +12,7 @@
       "@p/*": ["./src/page/*"],
       "@c/*": ["./src/component/*"],
       "@a/*": ["./src/assets/*"],
-      "@u/*": ["./src/util/*"]
+      "@/util/*": ["./src/util/*"]
     }
   }
 }
