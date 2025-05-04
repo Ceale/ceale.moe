@@ -2,24 +2,25 @@
 </script>
 
 <template>
-    <RouterLink to="/about">about</RouterLink>
     <div class="container">
         <div class="logo"></div>
+        <!-- <RouterLink to="/about">about</RouterLink> -->
         <footer>©2025 筱莱Ceale. All rights reserved.</footer>
     </div>
 </template>
 
 <style scoped>
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100%;
     background-image: url(@a/image/dot.svg);
     background-size: 3.5vh;
 }
 
 .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     background-image: url(@a/image/logo.svg);
     background-size: contain;
     background-position: center 0%;
