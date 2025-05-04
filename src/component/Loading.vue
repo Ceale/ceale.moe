@@ -75,7 +75,6 @@ section {
     border-radius: 70% 30% 0 30%;
     background-color:rgb(92, 92, 92);
     z-index: -1;
-    /* transform: scale(0.5); */
     transform: scale(0.95);
     opacity: 0;
     transform-origin: 100% 100%;

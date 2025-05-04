@@ -43,16 +43,34 @@ const logo = logoList[Math.floor(Math.random()*logoList.length)]
 const logoStyle = {
     "mask-image": `url("${logo}")`,
     "-webkit-mask-image": `url("${logo}")`,
-    "mask-size": "cover",
-    "-webkit-mask-size": "cover"
 }
 
 const textList = [
     {
         title: "你说得对",
         content: "但是《原神》是由米哈游自主研发的一款全新开放世界冒险游戏。<br/>游戏发生在一个被称作「提瓦特」的幻想世界。<br/>同时，逐步发掘「原神」的真相。"
+    },
+    {
+        title: "你知道吗？",
+        content: "不要让树漂浮。"
     }
 ]
+
+import Loading from "@/assets/image/loading/genshin/loading.svg"
+import LoadingMinecraft from "@/assets/image/loading/genshin/loading-minecraft.svg"
+
+const laoding = [
+    Loading,
+    LoadingMinecraft
+]
+
+const loadingUrl = laoding[Math.floor(Math.random()*laoding.length)]
+
+const loadingStyle = {
+    "mask-image": `url(" ${loadingUrl} ")`,
+    "-webkit-mask-image": `url(" ${loadingUrl} ")`,
+}
+
 
 const text = textList[Math.floor(Math.random()*textList.length)]
 </script>
@@ -66,7 +84,7 @@ const text = textList[Math.floor(Math.random()*textList.length)]
         <p class="content" v-html="text.content"></p>
     </div>
     <div class="line"></div>
-    <div class="fill-mask">
+    <div class="fill-mask" :style="loadingStyle">
         <div class="fill" :style="{ width: width+'%' }"></div>
     </div>
 </section>
@@ -87,6 +105,8 @@ section {
     width: 140px;
     height: 140px;
     background-color: #d5bc8d;
+    mask-size: cover;
+    -webkit-mask-size: cover;
 }
 
 .text {
@@ -115,10 +135,10 @@ section {
     bottom: 12%;
     transform: translate(-50%, 50%);
     width: min(285px, 60vw);
-    height: min(37px, 7.8vw);
-    mask-image: url("@a/image/loading/genshin/loading.svg");
-    -webkit-mask-image: url("@a/image/loading/genshin/loading.svg");
+    height: min(35.625px, 7.5vw);
     background-color:#38373d;
+    mask-size: cover;
+    -webkit-mask-size: cover;
 }
 
 .fill {

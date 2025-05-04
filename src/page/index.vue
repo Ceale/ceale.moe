@@ -16,22 +16,32 @@
     align-items: center;
     height: 100%;
     background-image: url(@a/image/dot.svg);
-    background-size: 25px;
+    background-size: 3.5vh;
 }
 
 .logo {
-    width: 450px;
-    height: 200px;
     user-select: none;
 }
 
 footer {
     position: fixed;
-    bottom: 32px;
     left: 0;
     right: 0;
+    bottom: 2vh;
+    font-size: 1.8vh;
     text-align: center;
-    font-size: 14px;
     color:rgb(61, 61, 61);
+}
+
+@media (min-aspect-ratio: 1/1) {
+    .logo {
+        width: 70vh;
+        height: 25vh;
+    }
+} @media (max-aspect-ratio: 1/1) {
+    .logo {
+        width: 70vw;
+        height: 25vw;
+    }
 }
 </style>
