@@ -31,18 +31,18 @@ const hide = async () => {
 let width = ref(0)
 const style = ref({ opacity: 1 })
 
-import Mondstadt from "@a/image/loading/genshin/Mondstadt.png"
-import Liyue from "@a/image/loading/genshin/Liyue.png"
-import Inazuma from "@a/image/loading/genshin/Inazuma.png"
-import Sumeru from "@a/image/loading/genshin/Sumeru.png"
-import Fontaine from "@a/image/loading/genshin/Fontaine.png"
-import Natlan from "@a/image/loading/genshin/Natlan.png"
+import Mondstadt from "@a/image/loading/genshin/Mondstadt.png?no-inline"
+import Liyue from "@a/image/loading/genshin/Liyue.png?no-inline"
+import Inazuma from "@a/image/loading/genshin/Inazuma.png?no-inline"
+import Sumeru from "@a/image/loading/genshin/Sumeru.png?no-inline"
+import Fontaine from "@a/image/loading/genshin/Fontaine.png?no-inline"
+import Natlan from "@a/image/loading/genshin/Natlan.png?no-inline"
 
 const logoList = [Mondstadt, Liyue, Inazuma, Sumeru, Fontaine, Natlan]
 const logo = logoList[Math.floor(Math.random()*logoList.length)]
 const logoStyle = {
-    "mask-image": `url(${logo})`,
-    "-webkit-mask-image": `url(${logo})`,
+    "mask-image": `url("${logo}")`,
+    "-webkit-mask-image": `url("${logo}")`,
     "mask-size": "cover",
     "-webkit-mask-size": "cover"
 }

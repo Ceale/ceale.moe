@@ -29,21 +29,22 @@ const hide = async () => {
 const width = ref(0)
 const opacity = ref(1)
 
-import MOJANG from "@a/image/loading/mojang/MOJANG.svg"
-import CEALE from "@a/image/loading/mojang/CEALE.svg"
+import MOJANG from "@a/image/loading/mojang/MOJANG.svg?no-inline"
+import CEALE from "@a/image/loading/mojang/CEALE.svg?no-inline"
 const themeList = [
     [ MOJANG, "rgb(241, 60, 69)" ],
     [ CEALE, "linear-gradient(rgba(96, 175, 0, 0.5), rgba(0, 120, 64, 0.5)), #fff" ]
 ]
+console.log()
 const theme = themeList[Math.floor(Math.random() * themeList.length)]
 const bg = theme[1]
-const url = `url(${theme[0]})`
+const url = `url("${theme[0]}")`
 </script>
 
 
 <template>
 <section :style="{ opacity: opacity, background: bg }">
-    <div class="logo" :style="{ backgroundImage: url }"></div>
+    <div class="logo" :style="{ 'background-image': url }"></div>
     <div class="background">
         <div class="fill" :style="{ width: width+'%' }"></div>
     </div>
@@ -56,7 +57,6 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background: v-bind(bg); */
     transition: opacity 800ms ease;
 }
 
@@ -64,7 +64,6 @@ section {
     position: relative;
     width: 80vmin;
     height: 20vmin;
-    /* background-image: v-bind(url); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
