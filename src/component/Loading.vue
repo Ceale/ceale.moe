@@ -14,7 +14,7 @@ provide("loaded", loaded)
 
 document.addEventListener("readystatechange", (event) => {
     if (event.target.readyState === "complete") {
-        // loaded.value = true
+        loaded.value = true
     }
 })
 
