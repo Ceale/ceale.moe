@@ -102,8 +102,8 @@ section {
     left: 50%;
     top: 45%;
     transform: translate(-50%, -50%);
-    width: 140px;
-    height: 140px;
+    width: 18vmin;
+    height: 18vmin;
     background-color: #d5bc8d;
     mask-size: cover;
     -webkit-mask-size: cover;
@@ -113,19 +113,19 @@ section {
     position: absolute;
     left: 50%;
     top: 82%;
-    width: 500px;
+    width: 64vmin;
     max-width: 90%;
     transform: translate(-50%, -100%);
     color: #d5bc8d;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 1.8vmin;
     text-align: center;
     user-select: none;
 }
 
 .text .title {
-    font-size: 16px;
+    font-size: 2.1vmin;
     line-height: 2;
 }
 
@@ -134,8 +134,8 @@ section {
     left: 50%;
     bottom: 12%;
     transform: translate(-50%, 50%);
-    width: min(285px, 60vw);
-    height: min(35.625px, 7.5vw);
+    width: 36vmin;
+    height: 4.5vmin;
     background-color:#38373d;
     mask-size: cover;
     -webkit-mask-size: cover;
@@ -152,14 +152,14 @@ section {
     bottom: 12%;
     transform: translateY(50%);
     width: 100%;
-    height: 2px;
+    height: 0.3vmin;
 }
 .line::before {
     content: "";
     position: absolute;
     left: 0;
     height: 100%;
-    width: calc(50% - min(175px, 38vw));
+    width: calc(50% - 22vmin);
     background-color: #38373d;
 }
 .line::after {
@@ -167,7 +167,7 @@ section {
     position: absolute;
     right: 0;
     height: 100%;
-    width: calc(50% - min(175px, 38vw));
+    width: calc(50% - 22vmin);
     background-color: #38373d;
 }
 </style>

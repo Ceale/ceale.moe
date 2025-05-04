@@ -2,9 +2,9 @@
 </script>
 
 <template>
+    <RouterLink to="/about">about</RouterLink>
     <div class="container">
-        <img class="logo" src="@a/image/logo.svg" alt="筱莱CEALEの摇曳" draggable="false">
-        <!-- <RouterLink to="/about">about</RouterLink> -->
+        <div class="logo"></div>
         <footer>©2025 筱莱Ceale. All rights reserved.</footer>
     </div>
 </template>
@@ -20,7 +20,10 @@
 }
 
 .logo {
-    user-select: none;
+    background-image: url(@a/image/logo.svg);
+    background-size: contain;
+    background-position: center 0%;
+    background-repeat: no-repeat;
 }
 
 footer {
@@ -36,12 +39,12 @@ footer {
 @media (min-aspect-ratio: 1/1) {
     .logo {
         width: 70vh;
-        height: 25vh;
+        height: 24vh;
     }
 } @media (max-aspect-ratio: 1/1) {
     .logo {
         width: 70vw;
-        height: 25vw;
+        height: 24vw;
     }
 }
 </style>

@@ -62,7 +62,7 @@ section {
 
 .logo {
     position: relative;
-    width: 80vmin;
+    width: 60vmin;
     height: 20vmin;
     background-repeat: no-repeat;
     background-position: center;
@@ -70,13 +70,13 @@ section {
 }
 
 .background {
-    position: absolute;
+    position: fixed;
     bottom: 10vh;
-    width: min(75%, calc(100vw - 100px));
-    height: max(3vmin, 15px);
-    padding: 2px;
+    width: 75%;
+    height: 3vmin;
+    padding: 0.5vmin;
     box-sizing: border-box;
-    border: #ffffff solid 2px;
+    border: #ffffff solid 0.5vmin;
 }
 
 .fill {

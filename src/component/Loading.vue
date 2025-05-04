@@ -43,26 +43,27 @@ section {
 
 .skip {
     position: fixed;
-    right: -165px;
-    bottom: -165px;
+    right: -21vmin;
+    bottom: -21vmin;
     z-index: 1000;
-    width: 250px;
-    height: 250px;
+    width: 32vmin;
+    height: 32vmin;
     border-radius: 70% 30% 0 30%;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #f0f0f0;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1), 0 0 30px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 2.5vmin 0 rgba(0, 0, 0, 0.1), 0 0 3.8vmin 2.5vmin rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
-    padding-right: 60px;
-    padding-bottom: 60px;
-    transition: all 300ms ease;
+    padding-right: 7.6vmin;
+    padding-bottom: 6vmin;
+    font-size: 1.7vmin;
+    transition: transform 300ms ease;
     color: white;
 }
 
 .skip:hover {
-    transform: translate(-55px, -60px);
+    transform: translate(-7.5vmin, -9vmin);
 }
 
 .skip::before{
@@ -86,6 +87,6 @@ section {
 }
 
 .skip:active::before {
-    transform: scale(1.01);
+    transform: scale(1.05);
 }
 </style>
