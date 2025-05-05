@@ -12,3 +12,10 @@ a {
     background-color:#6cae09;
     color: #fffffb;
 }
+
+.mask {
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+}

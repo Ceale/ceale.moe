@@ -10,9 +10,9 @@ watch(loaded!, () => hide())
 let animation_finish = false
 const timer = setInterval(() => {
     width.value += Math.floor(Math.random()*30) + 3
-    if ( width.value > 94.2 ) {
+    if ( width.value > loadingTime ) {
         clearInterval(timer)
-        width.value = 94.2
+        width.value = loadingTime
         animation_finish = true
         hide()
     }
@@ -22,7 +22,7 @@ const hide = async () => {
     if (!animation_finish || !loaded!.value) return
     await sleep(800)
     width.value = 100
-    await sleep(400)
+    await sleep(200)
     style.value = { opacity: 0 }
     await sleep(600)
     emit("close")
@@ -56,35 +56,37 @@ const textList = [
     }
 ]
 
+const text = textList[Math.floor(Math.random()*textList.length)]
+
+
 import Loading from "@/assets/image/loading/genshin/loading.svg"
 import LoadingMinecraft from "@/assets/image/loading/genshin/loading-minecraft.svg"
 
 const laoding = [
-    Loading,
-    LoadingMinecraft
-]
+    [Loading, 94],
+    [LoadingMinecraft, 92.3]
+]as [string, number][]
 
 const loadingUrl = laoding[Math.floor(Math.random()*laoding.length)]
 
 const loadingStyle = {
-    "mask-image": `url(" ${loadingUrl} ")`,
-    "-webkit-mask-image": `url(" ${loadingUrl} ")`,
+    "mask-image": `url(" ${loadingUrl[0]} ")`,
+    "-webkit-mask-image": `url(" ${loadingUrl[0]} ")`,
 }
 
-
-const text = textList[Math.floor(Math.random()*textList.length)]
+const loadingTime = loadingUrl[1]
 </script>
 
 
 <template>
 <section :style="style">
-    <div class="logo" :style="logoStyle"></div>
+    <div class="logo mask" :style="logoStyle"></div>
     <div class="text">
         <p class="title">{{ text.title }}</p>
         <p class="content" v-html="text.content"></p>
     </div>
     <div class="line"></div>
-    <div class="fill-mask" :style="loadingStyle">
+    <div class="fill-mask mask" :style="loadingStyle">
         <div class="fill" :style="{ width: width+'%' }"></div>
     </div>
 </section>
@@ -105,8 +107,6 @@ section {
     width: 18vmin;
     height: 18vmin;
     background-color: #d5bc8d;
-    mask-size: cover;
-    -webkit-mask-size: cover;
 }
 
 .text {
@@ -137,8 +137,6 @@ section {
     width: 36vmin;
     height: 4.5vmin;
     background-color:#38373d;
-    mask-size: cover;
-    -webkit-mask-size: cover;
 }
 
 .fill {
