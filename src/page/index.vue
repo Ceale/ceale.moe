@@ -34,7 +34,8 @@ footer {
     bottom: 2vh;
     font-size: 1.8vh;
     text-align: center;
-    color:rgb(61, 61, 61);
+    color:rgba(66, 66, 66, 0.8);
+    pointer-events: none;
 }
 
 @media (min-aspect-ratio: 1/1) {
