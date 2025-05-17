@@ -1,5 +1,6 @@
 <script setup>
 import { ref, provide, defineAsyncComponent } from "vue"
+const emit = defineEmits(["end"])
 
 const loadingAnimationList = [
     defineAsyncComponent(() => import("@c/Loading/Genshin.vue")),
@@ -8,37 +9,56 @@ const loadingAnimationList = [
 const loadingAnimation = loadingAnimationList[Math.floor(Math.random() * loadingAnimationList.length)]
 
 const show = ref(true)
-// const show = ref(false)
+// const animationShow = ref(false)
+
 const loaded = ref(false)
 provide("loaded", loaded)
-
 document.addEventListener("readystatechange", (event) => {
     if (event.target.readyState === "complete") {
         loaded.value = true
     }
 })
 
-const close = () => {
+const leave = ref(false)
+const duration = ref(200)
+
+const leaveF = (d) => {
+    emit("end")
+    leave.value = true
+    if (typeof d === "number") duration.value = d
     setTimeout(() => {
         show.value = false
-    }, 150)
+    }, duration.value + 100)
 }
 </script>
 
 
 <template>
-    <component v-if="show" :is="loadingAnimation" @close="show = false" />
-    <div v-if="show" class="skip" @mouseup="close()">跳过</div>
+    <main v-if="show" :class="{ leave: leave }" :style="{ transitionDuration: duration + 'ms' }">
+        <component :is="loadingAnimation" @close="leaveF"/>
+        <div class="skip" @mouseup="leaveF">跳过</div>
+    </main>
 </template>
 
 <style scoped>
+main {
+    position: fixed;
+    opacity: 1;
+    transition-property: opacity;
+    transition-timing-function: ease;
+    z-index: 1000;
+}
+
+main.leave {
+    opacity: 0;
+}
+
 section {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
 }
 
 .skip {
@@ -60,6 +80,16 @@ section {
     font-size: 1.7vmin;
     transition: transform 300ms ease;
     color: white;
+    animation: into 300ms ease;
+}
+
+@keyframes into {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .skip:hover {
@@ -88,5 +118,16 @@ section {
 
 .skip:active::before {
     transform: scale(1.05);
+}
+
+.leave-animation {
+    transition: opacity 300ms ease-in;
+    opacity: 0;
+}
+
+.leave-button {
+    transition: all 300ms ease-in;
+    transform: scale(0);
+    opacity: 0;
 }
 </style>

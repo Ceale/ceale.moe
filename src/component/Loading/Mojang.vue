@@ -21,13 +21,10 @@ const hide = async () => {
     if (!animation_finish || !loaded!.value) return
     await sleep(400)
     width.value = 100
-    opacity.value = 0
-    await sleep(800)
-    emit("close")
+    emit("close", 800)
 }
 
 const width = ref(0)
-const opacity = ref(1)
 
 import MOJANG from "@a/image/loading/mojang/MOJANG.svg?no-inline"
 import CEALE from "@a/image/loading/mojang/CEALE.svg?no-inline"
@@ -43,7 +40,7 @@ const url = `url("${theme[0]}")`
 
 
 <template>
-<section :style="{ opacity: opacity, background: bg }">
+<section :style="{ background: bg }">
     <div class="logo" :style="{ 'background-image': url }"></div>
     <div class="background">
         <div class="fill" :style="{ width: width+'%' }"></div>

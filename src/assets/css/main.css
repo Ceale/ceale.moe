@@ -1,11 +1,11 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
+    font-family: 寒蝉圆黑体, 思源黑体, sans-serif;
 }
 
 a {
-    text-decoration: none;
+    text-decoration: inherit;
 }
 
 ::selection {

@@ -23,9 +23,7 @@ const hide = async () => {
     await sleep(800)
     width.value = 100
     await sleep(200)
-    style.value = { opacity: 0 }
-    await sleep(600)
-    emit("close")
+    emit("close", 600)
 }
 
 let width = ref(0)

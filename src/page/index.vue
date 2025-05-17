@@ -1,19 +1,21 @@
 <script setup lang="ts">
+import Background from "@/component/Background.vue"
+import Copyright from "@/component/Copyright.vue"
+
 </script>
 
 <template>
     <div class="container">
         <div class="logo"></div>
-        <!-- <RouterLink to="/about">about</RouterLink> -->
-        <footer>©2025 筱莱Ceale. All rights reserved.</footer>
+        <RouterLink to="/about">about</RouterLink>
+         <Copyright style="position: fixed; left: 0; right: 0; bottom: 2vh;" />
     </div>
+    <Background />
 </template>
 
 <style scoped>
 .container {
     height: 100%;
-    background-image: url(@a/image/dot.svg);
-    background-size: 3.5vh;
 }
 
 .logo {
@@ -25,17 +27,17 @@
     background-size: contain;
     background-position: center 0%;
     background-repeat: no-repeat;
+    animation: into 400ms cubic-bezier(0, 0, 0, 1);
+
 }
 
-footer {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 2vh;
-    font-size: 1.8vh;
-    text-align: center;
-    color:rgba(66, 66, 66, 0.8);
-    pointer-events: none;
+@keyframes into {
+    from {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
 @media (min-aspect-ratio: 1/1) {
