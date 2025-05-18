@@ -3,12 +3,12 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: ChillRoundGothic, 思源黑体, sans-serif;
 }
 
 :root {
-    font-size: 2vh;
     color: #303030e0;
+    font-size: 2vh;
+    font-family: ChillRoundGothic, 思源黑体, sans-serif;
 }
 
 a {
