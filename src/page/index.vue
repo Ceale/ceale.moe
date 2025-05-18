@@ -42,7 +42,7 @@ import Copyright from "@/component/Copyright.vue"
     background-size: contain;
     background-position: center 0%;
     background-repeat: no-repeat;
-    animation: into 400ms cubic-bezier(0, 0, 0, 1);
+    animation: into 1s cubic-bezier(0, 0, 0, 1);
 
 }
 

@@ -1,6 +1,6 @@
 <template>
 <footer>
-    <p>©{{ new Date().getFullYear() }} 筱莱Ceale. All rights reserved.</p>
+    <p>© 2021 - {{ new Date().getFullYear() }} 筱莱Ceale. All rights reserved.</p>
     <p>萌ICP备20220115号</p>
 </footer>
 </template>

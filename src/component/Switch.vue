@@ -93,11 +93,8 @@ const getLoadingText = () => {
         <div class="plane"></div>
         <div class="plane"></div>
         <div class="container">
-            <!-- <Background /> -->
-            <!-- <div class="content"> -->
-                <div class="img"></div>
-                <p>{{ loadingText }}</p>
-            <!-- </div> -->
+            <div class="img"></div>
+            <p>{{ loadingText }}</p>
         </div>
     </section>
 </template>
@@ -115,11 +112,11 @@ section {
 }
 
 section.hide {
-    animation: 950ms ease-in-out forwards hide;
+    animation: 1000ms ease-in-out forwards hide;
 }
 
 @keyframes hide {
-    85% {
+    90% {
         opacity: 1;
     }
     100% {
@@ -203,18 +200,18 @@ section.hide {
 
 .hide .plane:nth-child(1),
 .hide .container:nth-child(1) {
-    animation-delay: 160ms;
+    animation-delay: 240ms;
 }
 
 .plane:nth-child(2),
 .container:nth-child(2) {
     background:rgb(194, 237, 107);
-    animation-delay: 80ms;
+    animation-delay: 120ms;
 }
 
 .hide .plane:nth-child(2),
 .hide .container:nth-child(2) {
-    animation-delay: 80ms;
+    animation-delay: 120ms;
 }
 
 .plane:nth-child(3),
@@ -222,7 +219,7 @@ section.hide {
     background-image: linear-gradient(0deg, #ecfaf7 50%, #fafafa 50%);
     background-size: 10% 100%;
     background-repeat: repeat;
-    animation-delay: 160ms;
+    animation-delay: 240ms;
 }
 
 .hide .plane:nth-child(3),
