@@ -5,7 +5,6 @@ import Switch from "@c/Switch.vue"
 import { ref } from "vue"
 
 const isTool = location.pathname.startsWith("/tool")
-
 const show = ref(isTool ? true : false)
 </script>
 

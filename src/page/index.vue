@@ -7,15 +7,30 @@ import Copyright from "@/component/Copyright.vue"
 <template>
     <div class="container">
         <div class="logo"></div>
-        <RouterLink to="/about">about</RouterLink>
-         <Copyright style="position: fixed; left: 0; right: 0; bottom: 2vh;" />
+        <RouterLink class="link" to="/about">☆点这里☆</RouterLink>
     </div>
+    <Copyright style="position: fixed; left: 0; right: 0; bottom: 1.5vh;" />
     <Background />
 </template>
 
 <style scoped>
 .container {
     height: 100%;
+}
+
+.link {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    font-size: 2vh;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transform: translate(-50%, -50%);
+    transition: transform 350ms ease;
+}
+
+.link:hover {
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 .logo {

@@ -12,6 +12,6 @@ div {
     left: 0;
     bottom: 0;
     background-image: url(@a/image/dot.svg);
-    background-size: 3.5vh;
+    background-size: 4vh;
 }
 </style>

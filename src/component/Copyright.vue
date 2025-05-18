@@ -1,5 +1,8 @@
 <template>
-<footer><span v-for="(text, index) in `©${new Date().getFullYear()} 筱莱Ceale. All rights reserved.`">{{ text }}</span></footer>
+<footer>
+    <p>©{{ new Date().getFullYear() }} 筱莱Ceale. All rights reserved.</p>
+    <p>萌ICP备20220115号</p>
+</footer>
 </template>
 
 
@@ -10,5 +13,11 @@ footer {
     text-align: center;
     color:rgba(66, 66, 66, 0.8);
     pointer-events: none;
+    user-select: none;
+}
+
+footer * {
+    margin: 0.4em 0;
+    text-decoration: none;
 }
 </style>

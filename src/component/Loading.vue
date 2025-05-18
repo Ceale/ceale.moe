@@ -9,7 +9,7 @@ const loadingAnimationList = [
 const loadingAnimation = loadingAnimationList[Math.floor(Math.random() * loadingAnimationList.length)]
 
 const show = ref(true)
-// const animationShow = ref(false)
+// const show = ref(false)
 
 const loaded = ref(false)
 provide("loaded", loaded)
@@ -30,6 +30,8 @@ const leaveF = (d) => {
         show.value = false
     }, duration.value + 100)
 }
+
+// leaveF()
 </script>
 
 

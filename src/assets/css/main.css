@@ -1,16 +1,23 @@
+@import url("@/assets/font/ChillRoundGothic/stylesheet.css");
+
 * {
     padding: 0;
     margin: 0;
-    font-family: 寒蝉圆黑体, 思源黑体, sans-serif;
+    font-family: ChillRoundGothic, 思源黑体, sans-serif;
+}
+
+:root {
+    font-size: 2vh;
+    color: #303030e0;
 }
 
 a {
-    text-decoration: inherit;
+    color: inherit;
 }
 
 ::selection {
-    background-color:#6cae09;
-    color: #fffffb;
+    background-color:rgba(115, 183, 14, 0.6);
+    color:rgba(255, 255, 251, 0.85);
 }
 
 .mask {

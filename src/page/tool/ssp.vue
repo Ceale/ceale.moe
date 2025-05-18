@@ -43,7 +43,6 @@ onUnmounted(() => {
     <Background />
     <Copyright class="copyright" />
     <div id="main">
-        <div id="BackgroungImg"></div>
         <div id="app">
             
             <div class="item" id="quantity">
@@ -60,7 +59,6 @@ onUnmounted(() => {
     		<div id="output"></div>
     		
         </div>
-        <footer></footer>
     </div>
 </template>
 
@@ -74,6 +72,7 @@ onUnmounted(() => {
 button, input {
     outline: none;
     border: none;
+    font-size: 0.8em;
 }
 
 #main {
@@ -82,6 +81,7 @@ button, input {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    font-size: 0.8em;
 }
 
 #app {
@@ -89,28 +89,27 @@ button, input {
     flex-direction: column;
     align-items: stretch;
     background: #fff;
-    backdrop-filter: blur(30px);
-    padding: 30px;
-    border-radius: 1px;
+    padding: 1.5em;
+    border-radius: 0.5em;
 }
 
 .item {
-    margin: 10px;
+    margin: 0.6em;
 }
 
 .item input {
-    height: 20px;
+    height: 1em;
     background: transparent;
-    border-bottom: #000 solid 2px;
+    border-bottom: #000 solid 0.15em;
 }
 
 button {
     background: rgb(18, 120, 255);
-    padding: 5px 15px;
+    padding: 0.7em 1.5em;
 }
 
 #output {
-    padding: 10px;
+    padding: 1em;
     max-height: 30vh;
     max-width: 50vw;
     overflow: auto;

@@ -2,12 +2,15 @@
 import { ref, inject } from "vue"
 import { sleep } from "@/util/sleep"
 import type { ShowSwitchAnimation } from "@/type/ShowSwitchAnimation"
+import Background from "./Background.vue"
 
-let first = true
+let first = 2
+// let first = 1
 
-const Start = (next: any) => {
-    if (first == true) {
-        first = false
+const start = (next: any) => {
+    console.log(first)
+    if (first > 0) {
+        first--
         next()
         return
     }
@@ -21,12 +24,13 @@ const Start = (next: any) => {
             if (document.readyState == "complete") {
                 clearInterval(timer)
                 // 停止动画
-                animation_stop()
+                hideAnimation()
             }
         }, 100)
     })
 }
-inject<ShowSwitchAnimation>("ShowSwitchAnimation")!.run = Start
+start(() => {})
+inject<ShowSwitchAnimation>("ShowSwitchAnimation")!.run = start
 
 const show = ref(false)
 const className = ref<string[]>([])
@@ -38,7 +42,7 @@ async function animation_start(finish: any) {
     className.value = []
 
     show.value = true
-    loading_text = get_loading_text()
+    getLoadingText()
 
     await sleep(850 + in_delay * 2)
     finish()
@@ -50,16 +54,16 @@ function animation_run() {
         if (should_end == true) {
             clearInterval(timer)
             // 停止动画
-            animation_end()
+            endAnimation()
         }
     }, 100)
 }
 
-function animation_stop() {
+function hideAnimation() {
     should_end = true
 }
 
-async function animation_end() {
+async function endAnimation() {
     className.value.push("hide")
     await sleep(850 + in_delay * 2)
     show.value = false
@@ -67,7 +71,7 @@ async function animation_end() {
 }
 
 
-const loading_text_list = [
+const loadingTextList = [
     "正在加载了喵",
     "全力加载中",
     "正在连接到服务器",
@@ -76,12 +80,11 @@ const loading_text_list = [
     "通讯加密中"
 ]
 
-function get_loading_text() {
-    return loading_text_list[Math.floor(Math.random() * loading_text_list.length)]
+let loadingText: string
+
+const getLoadingText = () => {
+    loadingText = loadingTextList[Math.floor(Math.random() * loadingTextList.length)]
 }
-
-let loading_text: string
-
 </script>
 
 
@@ -90,10 +93,11 @@ let loading_text: string
         <div class="plane"></div>
         <div class="plane"></div>
         <div class="container">
-            <div class="content">
+            <!-- <Background /> -->
+            <!-- <div class="content"> -->
                 <div class="img"></div>
-                <p>{{ loading_text }}</p>
-            </div>
+                <p>{{ loadingText }}</p>
+            <!-- </div> -->
         </div>
     </section>
 </template>
@@ -110,13 +114,31 @@ section {
     z-index: 1000;
 }
 
+section.hide {
+    animation: 950ms ease-in-out forwards hide;
+}
+
+@keyframes hide {
+    85% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.container .content {
+.container p {
+    font-size: 1.2em;
+    letter-spacing: 0.15em;
+    pointer-events: none;
+    user-select: none;
+    text-align: center;
     animation: 2500ms cubic-bezier(0.09, 0.71, 0.44, 1) zoom_out forwards;
 }
 
@@ -130,21 +152,28 @@ section {
     }
 }
 
-.container .content .img {
-    width: 75vmin;
-    height: 20vmin;
+.container .img {
+    position: absolute;
+    bottom: 10vh;
+    right: 3vmin;
+    width: 40vmin;
+    height: 10vmin;
     background-image: url(@a/image/logo.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     filter: drop-shadow(0 0 1.5px rgba(0, 0, 0, 0.3));
+    animation: 3500ms cubic-bezier(0.09, 0.71, 0.44, 1) move_right forwards;
 }
 
-.container .content p {
-    text-align: center;
-    font-weight: lighter;
-    letter-spacing: 0.5em;
-    font-size: min(2.1vw, 1.6vh);
+@keyframes move_right {
+    from {
+        transform: translateX(-20vmin);
+    }
+
+    to {
+        transform: translateX(-5vmin);
+    }
 }
 
 .plane,
@@ -168,7 +197,7 @@ section {
 
 .plane:nth-child(1),
 .container:nth-child(1) {
-    background: #51c3bd;
+    background:rgb(84, 219, 213);
     animation-delay: 0ms;
 }
 
@@ -179,7 +208,7 @@ section {
 
 .plane:nth-child(2),
 .container:nth-child(2) {
-    background: #93cf72;
+    background:rgb(194, 237, 107);
     animation-delay: 80ms;
 }
 
@@ -190,9 +219,9 @@ section {
 
 .plane:nth-child(3),
 .container:nth-child(3) {
-    background-color: #c0b4b0;
-    background-image: url(@a/image/dot.svg);
-    background-size: 25px;
+    background-image: linear-gradient(0deg, #ecfaf7 50%, #fafafa 50%);
+    background-size: 10% 100%;
+    background-repeat: repeat;
     animation-delay: 160ms;
 }
 
@@ -203,25 +232,20 @@ section {
 
 @keyframes in {
     from {
-        clip-path: polygon(0 0, -100vh 100vh, -100vh 100vh, 0 0);
-        -webkit-clip-path: polygon(0 0, -100vh 100vh, -100vh 100vh, 0 0);
+        clip-path: polygon(-10vw 0, -10vw 0, -10vw 100vh, -10vw 100vh);
     }
 
     to {
-        clip-path: polygon(0 0, -100vh 100vh, 100vw 100vh, calc(100vw + 100vh) 0);
-        -webkit-clip-path: polygon(0 0, -100vh 100vh, 100vw 100vh, calc(100vw + 100vh) 0);
+        clip-path: polygon(-10vw 0, 150vw 0, 100vw 100vh, -10vw 100vh);
     }
 }
 
 @keyframes out {
     from {
-        clip-path: polygon(0 0, -100vh 100vh, 100vw 100vh, calc(100vw + 100vh) 0);
-        -webkit-clip-path: polygon(0 0, -100vh 100vh, 100vw 100vh, calc(100vw + 100vh) 0);
+        clip-path: polygon(0 0, 100vw 0, 100vw 100vh, 0 100vh);
     }
-
     to {
-        clip-path: polygon(calc(100vw + 100vh) 0, 100vw 100vh, 100vw 100vh, calc(100vw + 100vh) 0);
-        -webkit-clip-path: polygon(calc(100vw + 100vh) 0, 100vw 100vh, 100vw 100vh, calc(100vw + 100vh) 0);
+        clip-path: polygon( 100vw 0, 100vw 0, 0vw 100vh, 0vw 100vh);
     }
 }
 </style>
