@@ -8,7 +8,6 @@ let first = 2
 // let first = 1
 
 const start = (next: any) => {
-    console.log(first)
     if (first > 0) {
         first--
         next()
@@ -131,7 +130,7 @@ section.hide {
 }
 
 .container p {
-    font-size: 1.2em;
+    font-size: 0.8em;
     letter-spacing: 0.15em;
     pointer-events: none;
     user-select: none;
@@ -151,7 +150,7 @@ section.hide {
 
 .container .img {
     position: absolute;
-    bottom: 10vh;
+    bottom: 20vh;
     right: 3vmin;
     width: 40vmin;
     height: 10vmin;

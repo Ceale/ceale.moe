@@ -8,8 +8,7 @@ const loadingAnimationList = [
 ]
 const loadingAnimation = loadingAnimationList[Math.floor(Math.random() * loadingAnimationList.length)]
 
-const show = ref(import.meta.env.MODE === "development" ? false : true)
-// const show = ref(true)
+const show = ref(true)
 
 const loaded = ref(false)
 provide("loaded", loaded)
@@ -31,7 +30,9 @@ const leaveF = (d) => {
     }, duration.value + 100)
 }
 
-// leaveF()
+if (import.meta.env.MODE === "development") {
+    leaveF()
+}
 </script>
 
 

@@ -6,6 +6,7 @@ import { ref } from "vue"
 
 const isTool = location.pathname.startsWith("/tool")
 const show = ref(isTool ? true : false)
+// const show = ref(false)
 </script>
 
 <template>
