@@ -8,20 +8,28 @@ import Copyright from "@/component/Copyright.vue"
     <div class="container">
         <div class="logo"></div>
         <div class="link">
-            <RouterLink class="item" to="/about">☆点这里☆</RouterLink>
-            <RouterLink class="item" to="/blog">摇曳的时间</RouterLink>
-            <RouterLink class="item" to="/fl">友人帐</RouterLink>
-            <RouterLink class="item" to="/tool">小工具</RouterLink>
+            <RouterLink class="item" to="/about" style="animation-delay: 450ms;">☆点这里☆</RouterLink>
+            <RouterLink class="item" to="/blog" style="animation-delay: 300ms;">摇曳的时间</RouterLink>
+            <RouterLink class="item" to="/fl" style="animation-delay: 350ms;">友人帐</RouterLink>
+            <RouterLink class="item" to="/tool" style="animation-delay: 450ms;">小工具</RouterLink>
         </div>
         <!-- <RouterLink class="link" to="/about">☆点这里☆</RouterLink> -->
     </div>
-    <Copyright style="position: fixed; left: 0; right: 0; bottom: 1.5vh;" />
+    <Copyright class="copyright"/>
     <Background />
 </template>
 
 <style scoped>
 .container {
     height: 100%;
+}
+
+.copyright {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 1.5vh;
+    animation: opacityInto 600ms ease forwards;
 }
 
 .link {
@@ -38,8 +46,8 @@ import Copyright from "@/component/Copyright.vue"
 }
 
 .link .item  {
-    word-break: normal;
-    
+    opacity: 0;
+    animation: opacityInto 400ms ease forwards;
 }
 
 .link::before {
@@ -48,25 +56,32 @@ import Copyright from "@/component/Copyright.vue"
     bottom: 0;
     height: 70%;
     width: 100%;
-    transform: scale(1.1, 1) translateY(0.2em);
+    opacity: 0;
+    transform: scaleX(0.4) translateY(0.2em);
     background-color: rgba(185, 226, 102, 0.5);
     z-index: -1;
+    animation: linkInto 800ms ease 150ms forwards;
 }
 
-/* .link {
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    font-size: 2vh;
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    transform: translate(-50%, -50%);
-    transition: transform 350ms ease;
+@keyframes linkInto {
+    from {
+        opacity: 0;
+        transform: scaleX(0.4) translateY(0.2em);
+    }
+    to {
+        opacity: 1;
+        transform: scaleX(1.1) translateY(0.2em);
+    }
 }
 
-.link:hover {
-    transform: translate(-50%, -50%) scale(1.1);
-} */
+@keyframes opacityInto {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 .logo {
     position: absolute;
@@ -77,13 +92,17 @@ import Copyright from "@/component/Copyright.vue"
     background-size: contain;
     background-position: center 0%;
     background-repeat: no-repeat;
-    animation: into 1s cubic-bezier(0, 0, 0, 1);
+    animation: logoInto 800ms cubic-bezier(.16,1,.3,1);
 
 }
 
-@keyframes into {
+@keyframes logoInto {
     from {
         transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
     }
     to {
         transform: translate(-50%, -50%) scale(1);
