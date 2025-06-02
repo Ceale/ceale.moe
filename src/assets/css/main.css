@@ -9,10 +9,18 @@
     color:rgba(52, 52, 52, 0.88);
     font-size: 2vh;
     font-family: ChillRoundGothic, 思源黑体, sans-serif;
+    font-weight: normal;
+    line-height: 1.5;
 }
 
 a {
     color: inherit;
+    text-decoration: none;
+}
+
+a.underline {
+    text-decoration: underline wavy;
+    text-decoration-color:rgb(155, 194, 82);
 }
 
 ::selection {

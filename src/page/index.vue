@@ -7,7 +7,13 @@ import Copyright from "@/component/Copyright.vue"
 <template>
     <div class="container">
         <div class="logo"></div>
-        <RouterLink class="link" to="/about">☆点这里☆</RouterLink>
+        <div class="link">
+            <RouterLink class="item" to="/about">☆点这里☆</RouterLink>
+            <RouterLink class="item" to="/blog">摇曳的时间</RouterLink>
+            <RouterLink class="item" to="/fl">友人帐</RouterLink>
+            <RouterLink class="item" to="/tool">小工具</RouterLink>
+        </div>
+        <!-- <RouterLink class="link" to="/about">☆点这里☆</RouterLink> -->
     </div>
     <Copyright style="position: fixed; left: 0; right: 0; bottom: 1.5vh;" />
     <Background />
@@ -20,6 +26,35 @@ import Copyright from "@/component/Copyright.vue"
 
 .link {
     position: absolute;
+    bottom: 30%;
+    right: 50%;
+    transform: translateX(50%);
+    width: 20em;
+    max-width: 90%;
+    display: flex;
+    justify-content: space-between;
+
+    color:#484848;
+}
+
+.link .item  {
+    word-break: normal;
+    
+}
+
+.link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 70%;
+    width: 100%;
+    transform: scale(1.1, 1) translateY(0.2em);
+    background-color: rgba(185, 226, 102, 0.5);
+    z-index: -1;
+}
+
+/* .link {
+    position: absolute;
     top: 65%;
     left: 50%;
     font-size: 2vh;
@@ -31,7 +66,7 @@ import Copyright from "@/component/Copyright.vue"
 
 .link:hover {
     transform: translate(-50%, -50%) scale(1.1);
-}
+} */
 
 .logo {
     position: absolute;

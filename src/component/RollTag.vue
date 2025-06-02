@@ -24,7 +24,7 @@ let roll: () => void
 onMounted(() => {
     const node = nodeRef.value!
     let rolling = false
-    const count = 23
+    const count = 23 * 2
 
     roll = () => {
         console.log("roll")
@@ -46,7 +46,7 @@ onMounted(() => {
         rolling = true
         let time = 0
         for (let i = 1; i <= count; i++) {
-            const t = (1.1 ** i) * 50
+            const t = (1.1 ** (i/2)) * 50
             time += t
             setTimeout(() => {
                 const span = document.createElement("span")

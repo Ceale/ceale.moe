@@ -16,6 +16,18 @@ const router = createRouter({
             component: () => import("@p/about.vue")
         },
         {
+            path: "/blog",
+            component: () => import("@p/TodoPage.vue")
+        },
+        {
+            path: "/fl",
+            component: () => import("@p/TodoPage.vue")
+        },
+        {
+            path: "/tool",
+            component: () => import("@p/TodoPage.vue")
+        },
+        {
             path: "/tool/ssp",
             component: () => import("@p/tool/ssp.vue")
         },

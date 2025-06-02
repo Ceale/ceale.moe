@@ -215,7 +215,7 @@ section.hide {
 
 .plane:nth-child(3),
 .container:nth-child(3) {
-    background-image: linear-gradient(0deg, #ecfaf7 50%, #fafafa 50%);
+    background-image: linear-gradient(0deg, #ecfaf7 50%, #fffffa 50%);
     background-size: 10% 100%;
     background-repeat: repeat;
     animation-delay: 240ms;
@@ -232,7 +232,7 @@ section.hide {
     }
 
     to {
-        clip-path: polygon(-10vw 0, 150vw 0, 100vw 100vh, -10vw 100vh);
+        clip-path: polygon(-10vw 0, 200vw 0, 100vw 100vh, -10vw 100vh);
     }
 }
 
