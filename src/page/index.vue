@@ -92,7 +92,7 @@ import Copyright from "@/component/Copyright.vue"
     background-size: contain;
     background-position: center 0%;
     background-repeat: no-repeat;
-    animation: logoInto 800ms cubic-bezier(.16,1,.3,1);
+    animation: logoInto 1800ms cubic-bezier(.16,1,.3,1);
 
 }
 
@@ -101,10 +101,11 @@ import Copyright from "@/component/Copyright.vue"
         transform: translate(-50%, -50%) scale(0.8);
         opacity: 0;
     }
-    50% {
-        opacity: 1;
+    15% {
+        opacity: 0;
     }
     to {
+        opacity: 1;
         transform: translate(-50%, -50%) scale(1);
     }
 }
