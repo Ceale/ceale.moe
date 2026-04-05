@@ -153,7 +153,7 @@ const roll = ref(false)
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url(@/assets/image/avatar.png);
+    background-image: url(/avatar.png);
     margin: 0 1em;
     position: relative;
 }
