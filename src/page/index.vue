@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import Background from "@/component/Background.vue"
 import Copyright from "@/component/Copyright.vue"
+import Link from "@/component/Link.vue"
+import NavLink from "@/component/NavLink.vue"
 
 </script>
 
@@ -10,10 +12,9 @@ import Copyright from "@/component/Copyright.vue"
         <div class="link">
             <RouterLink class="item" to="/about" style="animation-delay: 450ms;">☆点这里☆</RouterLink>
             <RouterLink class="item" to="/blog" style="animation-delay: 300ms;">摇曳的时间</RouterLink>
-            <RouterLink class="item" to="/fl" style="animation-delay: 350ms;">友人帐</RouterLink>
+            <RouterLink class="item" to="/link" style="animation-delay: 350ms;">友链</RouterLink>
             <RouterLink class="item" to="/tool" style="animation-delay: 450ms;">小工具</RouterLink>
         </div>
-        <!-- <RouterLink class="link" to="/about">☆点这里☆</RouterLink> -->
     </div>
     <Copyright class="copyright"/>
     <Background />
@@ -30,6 +31,24 @@ import Copyright from "@/component/Copyright.vue"
     right: 0;
     bottom: 1.5vh;
     animation: opacityInto 600ms ease forwards;
+}
+
+.link1 {
+    position: absolute;
+    bottom: 30%;
+    right: 50%;
+    transform: translateX(50%);
+    width: 20em;
+    max-width: 90%;
+    display: flex;
+    justify-content: space-between;
+
+    color:#484848;
+}
+
+.link1 .item  {
+    opacity: 0;
+    animation: opacityInto 400ms ease forwards;
 }
 
 .link {
@@ -86,7 +105,9 @@ import Copyright from "@/component/Copyright.vue"
 .logo {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 48%;
+    width: 80vmin;
+    height: 25vmin;
     transform: translate(-50%, -50%);
     background-image: url(@a/image/logo.svg);
     background-size: contain;
@@ -110,15 +131,15 @@ import Copyright from "@/component/Copyright.vue"
     }
 }
 
-@media (min-aspect-ratio: 1/1) {
+/* @media (min-aspect-ratio: 1/1) {
     .logo {
-        width: 70vh;
-        height: 24vh;
+        width: 80vh;
+        height: 25vh;
     }
 } @media (max-aspect-ratio: 1/1) {
     .logo {
-        width: 70vw;
-        height: 24vw;
+        width: 80vw;
+        height: 25vw;
     }
-}
+} */
 </style>

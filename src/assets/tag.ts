@@ -29,23 +29,22 @@ export const tag = [
     // "你很幸运，roll到了这个毫无意义的标签，请再roll一个",
 
     // 属性
-    "二次元（？）", "ACGN爱好者", "INFP-A", "otaku", "也许是社民或者民社",
+    "二次元（？）", "ACGN爱好者", "INFP-A", "otaku",
     "混乱善良",
     // 生活
     "达旦方休", "摆烂领域大神", "某不知名路人丙", "宏观领域萌新",
     // 游戏
-    `Minecraft${new Date().getFullYear() - 2014}年老玩家`, "曾是MinecraftCBer",
-    "Genshin剧情玩家",
-    "玩Totally Accurate Battlegrounds",
+    "Minecraft", "Minecraft Function",
+    "原神", "PUBG",
+    "Totally Accurate Battlegrounds",
     // 技术
-    "Typescript用户", "js？感觉不如ts...画质", "Java入门", 
-    "Adobe用户", "VSCode用户", "Windows用户",
-    "Vue使用者", "NaiveUI使用者", "喜欢造没意义的方轮子",
-    "IntelliJ IDEA用户",
+    "Typescript", "Java", 
+    "VSCode 用户", "IntelliJ IDEA 用户", "Adobe 用户", "Windows 用户", "Linux 用户",
+    "Vue 使用者", "NaiveUI 使用者", "为美好的世界造出更多的方轮子！",
     // 意义不明
     "<s>null</s>", "<s>undefined</s>", "<s>NaN</s>", "<s>Infinity</s>", "<s>[object Object]</s>",
     "啊哦，出错了，再试一次吧", "啊哦，没有出错哟，但也再试一次吧",
     // 态度
     "测一次变一次的MBTI", "自我意识过剩", "非二元", "非对立", "爱与和平", "爱好和平",
-    "什么类型都可以吃一点", "认为Material好看", "选择Metro而非Fluent",
+    "什么类型都可以吃一点", "认为 Material 好看", "选择 Metro 而非 Fluent",
 ]

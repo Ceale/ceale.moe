@@ -13,3 +13,6 @@ import { RouterLink } from "vue-router"
         <RouterLink class="underline" to="/">返回</RouterLink>
     </div>
 </template>
+
+
+<style></style>

@@ -20,8 +20,8 @@ const router = createRouter({
             component: () => import("@p/TodoPage.vue")
         },
         {
-            path: "/fl",
-            component: () => import("@p/TodoPage.vue")
+            path: "/link",
+            component: () => import("@p/link.vue")
         },
         {
             path: "/tool",

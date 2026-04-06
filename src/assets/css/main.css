@@ -3,6 +3,7 @@
 * {
     padding: 0;
     margin: 0;
+    flex-shrink: 0;
 }
 
 :root {
@@ -16,11 +17,6 @@
 a {
     color: inherit;
     text-decoration: none;
-}
-
-a.underline {
-    text-decoration: underline wavy;
-    text-decoration-color:rgb(155, 194, 82);
 }
 
 ::selection {
