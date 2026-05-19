@@ -11,9 +11,14 @@ import NavLink from "@/component/NavLink.vue"
         <div class="logo"></div>
         <div class="link">
             <RouterLink class="item" to="/about" style="animation-delay: 450ms;">☆点这里☆</RouterLink>
-            <RouterLink class="item" to="/blog" style="animation-delay: 300ms;">摇曳的时间</RouterLink>
+            <!-- <RouterLink class="item" to="/blog" style="animation-delay: 300ms;">摇曳的时间</RouterLink> -->
             <RouterLink class="item" to="/link" style="animation-delay: 350ms;">友链</RouterLink>
-            <RouterLink class="item" to="/tool" style="animation-delay: 450ms;">小工具</RouterLink>
+            <!-- <RouterLink class="item" to="/tool" style="animation-delay: 450ms;">小工具</RouterLink> -->
+        </div>
+        <div class="link1">
+            <a class="item" href="https://www.travellings.cn/go.html" target="_blank" style="animation-delay: 450ms;">🚇开往</a>
+            <a class="item" href="https://foreverblog.cn/go.html" target="_blank" style="animation-delay: 300ms;">十年之约</a>
+            <a class="item" href="https://travel.moe/go.html?travel=on" target="_blank" style="animation-delay: 300ms;">异次元之旅</a>
         </div>
     </div>
     <Copyright class="copyright"/>
@@ -35,13 +40,13 @@ import NavLink from "@/component/NavLink.vue"
 
 .link1 {
     position: absolute;
-    bottom: 30%;
+    bottom: 20%;
     right: 50%;
     transform: translateX(50%);
-    width: 20em;
+    width: 15em;
     max-width: 90%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 
     color:#484848;
 }
@@ -51,15 +56,28 @@ import NavLink from "@/component/NavLink.vue"
     animation: opacityInto 400ms ease forwards;
 }
 
+.link1::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 70%;
+    width: 100%;
+    opacity: 0;
+    transform: scaleX(0.4) translateY(0.2em);
+    background-color: rgba(230, 118, 193, 0.35);
+    z-index: -1;
+    animation: linkInto 800ms ease 150ms forwards;
+}
+
 .link {
     position: absolute;
     bottom: 30%;
     right: 50%;
     transform: translateX(50%);
-    width: 20em;
+    width: 10em;
     max-width: 90%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 
     color:#484848;
 }
