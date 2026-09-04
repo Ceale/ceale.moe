@@ -15,7 +15,7 @@ export const link = [
         name: "极云喵",
         desc: "前面的区域以后再来探索吧！",
         link: "https://moeneko.cc/",
-        icon: "https://moeneko.cc/assets/avatar.png"
+        icon: "https://moeneko.cc/avatar.png"
     },
     {
         name: "Mic",
